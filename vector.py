@@ -74,7 +74,7 @@ class Vector:
             # Add more similar vector and then remove the "farthest" updated one (sorted so it will be last..)
             self._similar_vectors_matches.update(self._cursor)
             self._sort_dict_by_values()
-            self._similar_vectors_matches.pop(self._similar_vectors_matches.values()[-1])
+            self._similar_vectors_matches.remove(self._similar_vectors_matches.values()[-1])
             # Update new farthest
             self._farthest_vector = np.dot(given_vector,
                                            (self._similar_vectors_matches.values()[-1]))
